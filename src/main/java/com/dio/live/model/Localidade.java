@@ -1,5 +1,7 @@
 package com.dio.live.model;
 
+import javax.persistence.ManyToOne;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -15,6 +17,8 @@ import lombok.Setter;
 @Builder
 public class Localidade {
     private Long id;
+
+    @ManyToOne
     private NivelAcesso nivelAcesso;
     private String descricao;
 }
