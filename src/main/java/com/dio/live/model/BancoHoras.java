@@ -1,4 +1,5 @@
 package com.dio.live.model;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -19,24 +20,22 @@ import lombok.Setter;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Builder
-public class Movimentacao {
+public class BancoHoras {
 
     @Embeddable
     @AllArgsConstructor
     @NoArgsConstructor
     @EqualsAndHashCode
-    public class MovimentacaoId implements Serializable {
-        private Long idMovimentacao;
+    public class BancoHorasId implements Serializable {
+        private Long idBancoHoras;
         private Long idUsuario;
+        private Long idMovimentacao;
     }
 
     @EmbeddedId
-    private MovimentacaoId id;
+    private BancoHorasId id;
 
-    private LocalDateTime dataEntrada;
-    private LocalDateTime dataSaida;
-    private BigDecimal periodo;
-    private Ocorrencia ocorrencia;
-    private Calendario calendario;
-    
+    LocalDateTime dataTrabalhada;
+    BigDecimal quantidadeHoras;
+    BigDecimal saldoHorasTrabalhadas;
 }
