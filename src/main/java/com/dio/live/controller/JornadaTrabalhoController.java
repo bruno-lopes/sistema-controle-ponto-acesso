@@ -46,12 +46,8 @@ public class JornadaTrabalhoController {
     }
 
     @PutMapping
-    public ResponseEntity<JornadaTrabalho> updateJornada(JornadaTrabalho jornadaTrabalho) throws Exception {
-        return ResponseEntity.ok(
-            jornadaTrabalhoService.updateJornada(
-                jornadaTrabalho).orElseThrow(
-                    () -> new Exception("Jornada não encontrada")
-                ));
+    public JornadaTrabalho updateJornada(JornadaTrabalho jornadaTrabalho) throws Exception {
+        return jornadaTrabalhoService.updateJornada(jornadaTrabalho);
     }
 
     @DeleteMapping("/{idJornada}")

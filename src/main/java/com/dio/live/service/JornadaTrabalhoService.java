@@ -3,6 +3,8 @@ package com.dio.live.service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import com.dio.live.model.JornadaTrabalho;
 import com.dio.live.repository.JornadaTrabalhoRepository;
 
@@ -30,8 +32,9 @@ public class JornadaTrabalhoService {
         return Optional.ofNullable(jornadaTrabalhoRepository.getById(id));
     }
 
-    public Optional<JornadaTrabalho> updateJornada(JornadaTrabalho jornadaTrabalho) {
-        return Optional.ofNullable(jornadaTrabalhoRepository.save(jornadaTrabalho));
+    @Transactional
+    public JornadaTrabalho updateJornada(JornadaTrabalho jornadaTrabalho) {
+        return jornadaTrabalhoRepository.save(jornadaTrabalho);
     }
 
     public void deleteJornada(Long idJornada) {
