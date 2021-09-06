@@ -6,6 +6,8 @@ import java.time.LocalDateTime;
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -38,7 +40,10 @@ public class Movimentacao {
     private LocalDateTime dataEntrada;
     private LocalDateTime dataSaida;
     private BigDecimal periodo;
-    // private Ocorrencia ocorrencia;
-    // private Calendario calendario;
+    @OneToOne
+    private Ocorrencia ocorrencia;
+
+    @ManyToOne
+    private Calendario calendario;
     
 }
