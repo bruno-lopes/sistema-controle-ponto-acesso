@@ -33,7 +33,7 @@ public class JornadaTrabalhoController {
         return jornadaTrabalhoService.findAll();
     }
 
-    @GetMapping
+    // @GetMapping
     public JornadaTrabalho getJornadaById(@RequestParam("id") Long id) throws Exception {
         return jornadaTrabalhoService.getById(id).orElseThrow(() -> new Exception("Jornada não encontrada"));
     }
