@@ -29,5 +29,13 @@ public class JornadaTrabalhoService {
     public Optional<JornadaTrabalho> getById(Long id) {
         return Optional.ofNullable(jornadaTrabalhoRepository.getById(id));
     }
+
+    public Optional<JornadaTrabalho> updateJornada(JornadaTrabalho jornadaTrabalho) {
+        return Optional.ofNullable(jornadaTrabalhoRepository.save(jornadaTrabalho));
+    }
+
+    public void deleteJornada(Long idJornada) {
+        jornadaTrabalhoRepository.deleteById(idJornada);
+    }
     
 }
